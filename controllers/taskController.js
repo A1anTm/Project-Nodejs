@@ -58,14 +58,14 @@ export const updateTask = async (req, res) => {
     }
 };
 
-//Eliminar tarea por ID// Asegúrate de que la ruta sea correcta
 
 
+//Eliminar Tarea
 
 export const softDeletedTask = async (req, res) => {
-    const taskId = req.params.taskId; // Obtén el ID de la tarea de los parámetros
+    const taskId = req.params.taskId; 
 
-    // Verifica si el ID es válido
+ 
     if (!mongoose.isValidObjectId(taskId)) {
         return res.status(400).json({ message: "ID de tarea no válido." });
     }
@@ -77,7 +77,7 @@ export const softDeletedTask = async (req, res) => {
             return res.status(404).json({ message: "No se encontró la tarea." });
         }
 
-        res.status(200).json(updateTask); // Devuelve la tarea actualizada
+        res.status(200).json(updateTask); 
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
